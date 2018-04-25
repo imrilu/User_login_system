@@ -26,3 +26,4 @@ login history).
 4. server.php - PHP logic for logging-in and signing-up from the login page.
 5. resetPassword.php - including 'forgot my password' page and PHP logic for matching up password-reset token,
 querying the user and changing password.
+~~~~~~~~~~~~~~~~~~~
