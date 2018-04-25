@@ -5,7 +5,6 @@ session_start();
 $email = "";
 $fullname = "";
 $errors = array();
-$time_query = "INSERT INTO login_history VALUES";
 
 // connect to the database
 $db = new mysqli("localhost", "root", "", "userdb");
@@ -32,6 +31,10 @@ if (isset($_POST['reg_user'])) {
     if ($password1 != $password2) {
         array_push($errors, "The two passwords do not match");
     }
+    if (($password1 == $password2) && strlen($password1) < 6) {
+        array_push($errors, "Password should be at least 6 characters");
+    }
+
 
     // first check the database to make sure
     // a user does not already exist with the same email

@@ -3,11 +3,11 @@
 // opening connection to sql server
 $db = new mysqli("localhost", "root", "", "userdb");
 // init variables
-$password = $password1 = $password2 = $Message= "";
+$password = $password1 = $password2 = $Message = "";
 
 // in case of redirect from 'forgot password' page, displaying message (password not matched)
 if (!empty($_REQUEST['Message'])) {
-    echo "<script>alert('".$_REQUEST['Message']."');</script>";
+    echo "<script>alert('" . $_REQUEST['Message'] . "');</script>";
 }
 
 // getting token and email from address bar
@@ -28,6 +28,10 @@ if (isset($_POST['pass_change'])) {
 
     if ($password1 != $password2) {
         $Message = "The two passwords do not match";
+        // redirecting to same page but with message to display
+        header("Location: resetPassword.php?token=" . $token . "&" . "email=" . $email . "&" . "Message={$Message}");
+    } else if (($password1 == $password2) && strlen($password1) < 6) {
+        $Message = "Password should be at least 6 characters";
         // redirecting to same page but with message to display
         header("Location: resetPassword.php?token=" . $token . "&" . "email=" . $email . "&" . "Message={$Message}");
     } else if ($user['token'] == $token) {
