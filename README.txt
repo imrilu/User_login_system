@@ -14,6 +14,15 @@ https://github.com/PHPMailer/PHPMailer
 	If using locale web server such as Apache: Copy to the to the web-server web pages folder ('www').
 	
 3. Start the main log-in page 'login.php'
-
-
 ~~~~~~~~~~~~~~~~~~~
+
+Files Description:
+~~~~~~~~~~~~~~~~~~~
+1. login.php - log-in page using bootstrap UI. including login, sign-up and 'forgot my password' forms using
+'modal' bootstrap.
+2. errors.php - small php code for alerting error messages from the 'errors' array object.
+3. index.php - user-panel page, including both UI and php logic (querying certain data from DB such as
+login history).
+4. server.php - PHP logic for logging-in and signing-up from the login page.
+5. resetPassword.php - including 'forgot my password' page and PHP logic for matching up password-reset token,
+querying the user and changing password.
